@@ -6,14 +6,16 @@
 */
 using std::cout;
 using std::cin;
+
+
 void secondExersise(int32_t &number, int32_t &minimumNumber, int32_t &newNumber)
 {
-    std::cout << "Enter natural number: " << '\n';
-    std::cin >> number;
+    cout << "Enter natural number: " << '\n';
+    cin >> number;
     while (number <= 0)
     {
-        std::cout << "Invalid number! Enter right: ";
-        std::cin >> number;
+        cout << "Invalid number! Enter right: ";
+        cin >> number;
     }
     int32_t a = number;
     while (a != 0)
@@ -36,8 +38,10 @@ void secondExersise(int32_t &number, int32_t &minimumNumber, int32_t &newNumber)
             newNumber = newNumber * 10 + last_digit;
         }
     }
-    std::cout << "It is your number: " << newNumber;
+    cout << "It is your number: " << newNumber;
 }
+
+
 void fifthExersise(int32_t &sum, int32_t &fib1, int32_t &fib2, int32_t &number)
 {
     cout << "Please, enter natural number.\n";
@@ -57,21 +61,23 @@ void fifthExersise(int32_t &sum, int32_t &fib1, int32_t &fib2, int32_t &number)
     }
     cout << '\n' << "Sum = " << sum << std::endl;
 }
+
+
 void eightsExersise(int32_t &number)
 {
-    std::cout << "Input natural number: " << " ";
-    std::cin >> number;
+    cout << "Input natural number: " << " ";
+    cin >> number;
     if (number < 0)
     {
-        std::cout << "Incorrect input: " << '\n';
-        std::cin >> number;
+        cout << "Incorrect input: " << '\n';
+        cin >> number;
     }
     if (number == 1)
     {
-        std::cout << "There are no simple numbers in this range: " << '\n';
-        std::cin >> number;
+        cout << "There are no simple numbers in this range: " << '\n';
+        cin >> number;
     }
-    std::cout << 2 << '\n';
+    cout << 2 << '\n';
     for (int j = 3; j < number; j += 2)
     {
         bool is_simple = true;
@@ -85,10 +91,12 @@ void eightsExersise(int32_t &number)
         }
         if (is_simple)
         {
-            std::cout << j << '\n';
+            cout << j << '\n';
         }
     }
 }
+
+
 void chooseExersise(int32_t& mode, int32_t& number, int32_t& minimumNumber, int32_t& newNumber, int32_t& sum, int32_t& fib1, int32_t& fib2)
 {
     cout << "Choose the exersise:" << '\n' << "1.Second exersie" << '\n' << "2.Fifth exersise" << '\n' << "3.Eights exersise";
@@ -107,6 +115,8 @@ void chooseExersise(int32_t& mode, int32_t& number, int32_t& minimumNumber, int3
         break;
     }
 }
+
+
 int main()
 {
     int32_t sum = 0, fib1 = 0, fib2 = 1, number;
