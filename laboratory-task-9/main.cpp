@@ -78,7 +78,7 @@ void searchMaxSubstring(std::fstream& file, std::string& line)
 		}
 	}
 
-	std::cout << "Строка с максмальной подстрокой:\n" << maxSubstring << '\n';
+	std::cout << "String with max substring:\n" << maxSubstring << '\n';
 }
 
 
