@@ -14,6 +14,7 @@ void inputAndCheckString(std::string& str)
 {
     std::cout << "Input your string: ";
     std::getline(std::cin, str);
+
     if (str.empty() == true) {
         std::cout << "Your string is empty!";
         std::getline(std::cin, str);
@@ -27,6 +28,7 @@ void findMaxUnigueChars(std::string& str, std::string& word, std::string& maxWor
         word = str.substr(start, end - start);
         std::string uniqueChars;
         size_t length = word.length();
+
         for (size_t j = 0; j < length; j++) {
             if (uniqueChars.find(word[j]) == std::string::npos) {
                 uniqueChars += word[j];
@@ -62,3 +64,4 @@ int main()
    }
       return 0;
 }
+
