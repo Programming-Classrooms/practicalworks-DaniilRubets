@@ -7,7 +7,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-//#include <ctype.h>
 
 
 void checkFile(std::fstream &file)
