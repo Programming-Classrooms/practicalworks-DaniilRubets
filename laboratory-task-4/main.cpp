@@ -1,5 +1,11 @@
+/*
+
+*/
+
+
 #include <iostream>
 #include <iomanip>
+
 
 using std::cin;
 using std::cout;
@@ -181,34 +187,39 @@ void switchMode(int32_t& value, int32_t& mode)
 
 int main()
 {
-    srand(time(0));
-    int32_t value = 1;
-	int32_t rows = 0;
-    int32_t mode;
-    cout << "Input size of your matrix:";
-    cin >> rows;
-
-    if (rows <= 0)
-    {
-        cout << "Please, input natural number!";
+    try{
+        srand(time(0));
+        int32_t value = 1;
+        int32_t rows = 0;
+        int32_t mode = 0;
+        cout << "Input size of your matrix:";
         cin >> rows;
-    }
-	int32_t columns = rows;
-	int32_t** matrix = new int*[rows];
 
-	for (size_t i = 0; i < rows; i++)
-	{
-		matrix[i] = new int[columns];
-	}
-    fillingWithZeroes(matrix, rows, columns);
-    switchMode(value, mode);
-    spiralFilling(matrix, rows, columns,value);
-	printingMatrix(matrix ,rows,columns);
-    sumOfSecondaryDiagonal(matrix, value, rows, columns);
-    
-	for (size_t i = 0; i < rows; i++)
-	{
-		delete[]matrix[i];
-	}
-	delete[]matrix;
+        if (rows <= 0)
+        {
+            cout << "Please, input natural number!";
+            cin >> rows;
+        }
+        int32_t columns = rows;
+        int32_t** matrix = new int*[rows];
+
+        for (size_t i = 0; i < rows; i++)
+        {
+            matrix[i] = new int[columns];
+        }
+        fillingWithZeroes(matrix, rows, columns);
+        switchMode(value, mode);
+        spiralFilling(matrix, rows, columns,value);
+        printingMatrix(matrix ,rows,columns);
+        sumOfSecondaryDiagonal(matrix, value, rows, columns);
+        for (size_t i = 0; i < rows; i++)
+	    {
+		    delete[]matrix[i];
+	    }
+	        delete[]matrix;
+    }
+    catch(std::exception e) {
+        cout << e.what();
+    }
 }
+
