@@ -13,7 +13,7 @@
 double sumOfTaylorSeries(double &x, double &eps)
 {
     double result = 1.0;
-    double term = -x*x/2;
+    double term = -x * x / 2;
     int32_t n = 2;
 
     while (fabs(term) >= eps) {
