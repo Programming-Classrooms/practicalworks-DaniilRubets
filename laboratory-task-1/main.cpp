@@ -10,7 +10,7 @@
 #include <cmath>
 
 
-double sumOfTaylorSeries(double &x, double &eps) 
+double sumOfTaylorSeries(double &x, double &eps)
 {
     double result = 1.0;
     double term = -x*x/2;
