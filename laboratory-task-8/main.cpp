@@ -30,6 +30,7 @@ void findMaxUnigueChars(std::string& str, std::string& word, std::string& maxWor
         size_t length = word.length();
 
         for (size_t j = 0; j < length; j++) {
+            
             if (uniqueChars.find(word[j]) == std::string::npos) {
                 uniqueChars += word[j];
             }
