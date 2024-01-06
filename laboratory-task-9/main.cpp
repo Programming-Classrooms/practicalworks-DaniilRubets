@@ -1,8 +1,8 @@
 /*
-Задан текстовый файл input.txt. 
-Требуется определить строки этого  файла, содержащие максимальную по длине подстроку, состоящую из  одинаковых символов русского алфавита. 
-Заглавные и строчные буквы не различаются. 
-Если таких строк несколько, найти первые 10. Результат  вывести на консоль в форме, удобной для чтения.
+	Задан текстовый файл input.txt. 
+	Требуется определить строки этого  файла, содержащие максимальную по длине подстроку, состоящую из  одинаковых символов русского алфавита. 
+	Заглавные и строчные буквы не различаются. 
+	Если таких строк несколько, найти первые 10. Результат  вывести на консоль в форме, удобной для чтения.
 */
 
 
@@ -28,13 +28,13 @@ void checkFile(std::fstream& file)
 }
 
 
-bool returnRussianAlphabet(char c)
+bool checkRussianSymbols(char c)
 {
 	return (c >= 'А' && c <= 'я' || c == 'Ё' || c == 'ё');
 }
 
 
-void searchMaxSubstring(std::fstream& file, std::string& line)
+std::string searchMaxSubstring(std::fstream& file, std::string& line)
 {
 	int32_t currLength = 0;
 	size_t counter = 0;
@@ -49,7 +49,7 @@ void searchMaxSubstring(std::fstream& file, std::string& line)
 		for (size_t i = 0; i < size; i++) {
 			line[i] = tolower(line[i]);
 
-			if (returnRussianAlphabet(line[i])) {
+			if (checkRussianSymbols(line[i])) {
 				if (line[i] == currChar) {
 					currLength++;
 				}
@@ -78,7 +78,7 @@ void searchMaxSubstring(std::fstream& file, std::string& line)
 		}
 	}
 
-	std::cout << "String with max substring:\n" << maxSubstring << '\n';
+	return maxSubstring;
 }
 
 
@@ -91,7 +91,7 @@ int main()
 		std::string line;
 		std::string words;
 		checkFile(file);
-		searchMaxSubstring(file, line);
+		std::cout << searchMaxSubstring(file, line);
 		file.close();
 	}
 	catch (std::exception e) {
