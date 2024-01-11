@@ -18,6 +18,38 @@ bool isVowel(char c)
 }
 
 
+void wordCheck(char* str)
+{
+    bool alpha = true;
+    char* strcopy = strtok(str, " ");
+    for (size_t i = 0; i < strlen(strcopy); ++i) {
+        if (isalpha(strcopy[i]) == true) {
+            alpha = true;
+            break;
+        }
+        else if (isalpha(strcopy[i]) == false) {
+            alpha = false;
+        }
+    }
+
+    if (alpha == false) {
+        throw std::exception("Words is not founded!");
+    }
+}
+
+
+void checkingForVowelsLetters(char* str) 
+{
+    char strcopy[255];
+    strcpy(strcopy, str);
+    char* compare = strtok(strcopy, "aeiouy");
+
+    if (strcmp(str, compare) == false) {
+        throw std::exception("Words with lowels are not founded in your string!");
+    }
+}
+
+
 void findWordsWithMaxVowels(char* str, char* result)
 {
     char delimiters[] = " .,/!?-''+*=()[]<>~`@#$%^&_";
@@ -63,6 +95,8 @@ int main()
             std::cout << "String is empty! Try again!";
             std::cin.getline(str, 255);
         }
+        wordCheck(str);
+        checkingForVowelsLetters(str);
         findWordsWithMaxVowels(str, result);
     }
     catch (std::exception e) {
