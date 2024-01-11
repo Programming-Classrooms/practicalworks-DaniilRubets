@@ -27,26 +27,32 @@ double sumOfTaylorSeries(double &x, double &eps)
 
 int main() 
 {
-    double x;
-    int32_t k;
-    std::cout << "Input 'x' and 'k': ";
-    std::cin >> x >> k;
-
-    if (x > 1 && x < -1) {
-        std::cout << "Please, input value from {-1} to {1}";
+    try {
+        double x;
+        int32_t k;
+        std::cout << "Input 'x' and 'k': ";
         std::cin >> x >> k;
-    }
 
-    if (k <= 1) {
-        std::cout << "Value 'k' must be > 1!" << std::endl;
-        return 1;
-    }
-    double eps = std::pow(10, -k);
-    double result = sumOfTaylorSeries(x, eps);
-    double mathResult = std::cos(x);
+        if (x > 1 && x < -1) {
+            std::cout << "Please, input value from {-1} to {1}";
+            std::cin >> x >> k;
+        }
 
-    std::cout << "Taylor series sum: " << result << std::endl;
-    std::cout << "cos(x) = " << mathResult << std::endl;
+        if (k <= 1) {
+            std::cout << "Value 'k' must be > 1!" << std::endl;
+            return 1;
+        }
+        double eps = std::pow(10, -k);
+        double result = sumOfTaylorSeries(x, eps);
+        double mathResult = std::cos(x);
+
+        std::cout << "Taylor series sum: " << result << std::endl;
+        std::cout << "cos(x) = " << mathResult << std::endl;
+        }
+    
+    catch (std::exception e){
+        std::cout << e.what() << std::endl;
+    }
     return 0;
 }
 
