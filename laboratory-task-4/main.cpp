@@ -119,7 +119,7 @@ void spiralFilling(int32_t** matrix, int32_t& rows, int32_t& columns, int32_t &v
 }
 
 
-void sumOfSecondaryDiagonal(int32_t** matrix, int32_t& value, int32_t& rows, int32_t& columns)
+int sumOfSecondaryDiagonal(int32_t** matrix, int32_t& value, int32_t& rows, int32_t& columns)
 {
     int32_t sum = 0;
     for (size_t i = 0; i < rows; ++i) {
@@ -132,7 +132,7 @@ void sumOfSecondaryDiagonal(int32_t** matrix, int32_t& value, int32_t& rows, int
             }
         }
     }
-    std::cout << "It is sum of secondary diagonal:" << sum;
+    return sum;
 }
 
 
@@ -197,7 +197,7 @@ int main()
         switchMode(value, mode, rightBoader, leftBoader);
         spiralFilling(matrix, rows, columns,value);
         printingMatrix(matrix ,rows,columns);
-        sumOfSecondaryDiagonal(matrix, value, rows, columns);
+        std::cout << "It is sum of secondary diagonal:" << sumOfSecondaryDiagonal(matrix, value, rows, columns);
         for (size_t i = 0; i < rows; i++) {
 		    delete[]matrix[i];
 	    }
