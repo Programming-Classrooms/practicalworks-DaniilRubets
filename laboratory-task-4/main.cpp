@@ -19,9 +19,9 @@ void fillingWithZeroes(int32_t** matrix, int32_t& rows,int32_t &columns)
 }
 
 
-void inputStartValueFromKeyboard(int32_t& value)
+void inputStartValueFromKeyboard(int32_t value)
 {
-    std::cout << "Input start value:";
+    std::cout << "Input start natural number:";
     std::cin >> value;
 
     if (value <= 0) {
@@ -31,7 +31,7 @@ void inputStartValueFromKeyboard(int32_t& value)
 }
 
 
-void inputStartValueFromRandom(int32_t &value)
+void inputStartValueFromRandom(int32_t value)
 {
     int32_t rightBoader;
     int32_t leftBoader;
