@@ -31,10 +31,8 @@ void inputStartValueFromKeyboard(int32_t value)
 }
 
 
-void inputStartValueFromRandom(int32_t value)
+void inputBoadersForRandom(int32_t rightBoader, int32_t leftBoader)
 {
-    int32_t rightBoader;
-    int32_t leftBoader;
     std::cout << "Input right boader:";
     std::cin >> rightBoader;
 
@@ -49,6 +47,12 @@ void inputStartValueFromRandom(int32_t value)
         std::cout << "Please, input natural number!";
         std::cin >> leftBoader;
     }
+}
+
+
+void inputStartValueFromRandom(int32_t value, int32_t rightBoader, int32_t leftBoader)
+{
+    inputBoadersForRandom(rightBoader, leftBoader);
     value = rand() % (leftBoader - rightBoader) + rightBoader + 1;
 }
 
@@ -145,7 +149,7 @@ void printingMatrix(int32_t** matrix, int32_t &rows, int32_t &columns)
 }
 
 
-void switchMode(int32_t& value, int32_t& mode)
+void switchMode(int32_t& value, int32_t& mode, int32_t &rightBoader, int32_t &leftBoader)
 {
     std::cout << "Chooze mode of input start value"<<'\n'<<"1.Input from keyboard"<<'\n'<<"2.Input from random"<<'\n';
     std::cin >> mode;
@@ -157,7 +161,7 @@ void switchMode(int32_t& value, int32_t& mode)
         break;
 
     case 2:
-        inputStartValueFromRandom(value);
+        inputStartValueFromRandom(value, rightBoader, leftBoader);
         break;
 
     default:
@@ -174,6 +178,8 @@ int main()
         int32_t value = 1;
         int32_t rows = 0;
         int32_t mode = 0;
+        int32_t rightBoader = 0;
+        int32_t leftBoader = 0;
         std::cout << "Input size of your matrix:";
         std::cin >> rows;
 
@@ -188,7 +194,7 @@ int main()
             matrix[i] = new int[columns];
         }
         fillingWithZeroes(matrix, rows, columns);
-        switchMode(value, mode);
+        switchMode(value, mode, rightBoader, leftBoader);
         spiralFilling(matrix, rows, columns,value);
         printingMatrix(matrix ,rows,columns);
         sumOfSecondaryDiagonal(matrix, value, rows, columns);
