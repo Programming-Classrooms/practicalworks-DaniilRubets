@@ -161,7 +161,7 @@ void printMatrix(int32_t** matrix, int32_t &rows, int32_t &columns, int32_t widt
 }
 
 
-void switchMode(int32_t& value, int32_t& mode, int32_t &rightBoader, int32_t &leftBoader)
+void modeSelection(int32_t& value, int32_t& mode, int32_t &rightBoader, int32_t &leftBoader)
 {
     std::cout << "Chooze mode of input start value"<<'\n'<<"1.Input from keyboard"<<'\n'<<"2.Input from random"<<'\n';
     std::cin >> mode;
@@ -207,7 +207,7 @@ int main()
             matrix[i] = new int[columns];
         }
         fillingWithZeroes(matrix, rows, columns);
-        switchMode(value, mode, rightBoader, leftBoader);
+        modeSelection(value, mode, rightBoader, leftBoader);
         spiralFilling(matrix, rows, columns,value);
         printMatrix(matrix ,rows,columns, width);
         std::cout << "It is sum of secondary diagonal:" << sumOfSecondaryDiagonal(matrix, value, rows, columns);
