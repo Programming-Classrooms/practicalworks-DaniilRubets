@@ -15,8 +15,8 @@ using std::cout;
 
 void fillingWithZeroes(int32_t** matrix, int32_t& rows,int32_t &columns)
 {
-	for (size_t i = 0; i < rows; i++) {
-		for (size_t j = 0; j < columns; j++) {
+	for (size_t i = 0; i < rows; ++i) {
+		for (size_t j = 0; j < columns; ++j) {
 			matrix[i][j] = 0;
 		}
 	}
@@ -122,9 +122,9 @@ void spiralFilling(int32_t** matrix, int32_t& rows, int32_t& columns, int32_t &v
 void sumOfSecondaryDiagonal(int32_t** matrix, int32_t& value, int32_t& rows, int32_t& columns)
 {
     int32_t sum = 0;
-    for (size_t i = 0; i < rows; i++) {
+    for (size_t i = 0; i < rows; ++i) {
 
-        for (size_t j = 0; j < columns; j++) {
+        for (size_t j = 0; j < columns; ++j) {
 
             if ((i + j) == (rows - 1)) {
 
@@ -138,9 +138,9 @@ void sumOfSecondaryDiagonal(int32_t** matrix, int32_t& value, int32_t& rows, int
 
 void printingMatrix(int32_t** matrix, int32_t &rows, int32_t &columns)
 {
-	for (size_t i = 0; i < rows; i++) {
+	for (size_t i = 0; i < rows; ++i) {
 
-		for (size_t j = 0; j < columns; j++) {
+		for (size_t j = 0; j < columns; ++j) {
 
             cout << std::setw(5) << matrix[i][j] << " ";
 		}
@@ -169,7 +169,6 @@ void switchMode(int32_t& value, int32_t& mode)
         cin >> mode;
     }
 }
-
 
 
 int main()
@@ -206,5 +205,6 @@ int main()
     catch(std::exception e) {
         cout << e.what();
     }
+    return 0;
 }
 
