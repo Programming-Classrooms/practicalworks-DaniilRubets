@@ -78,7 +78,6 @@ void sumOfModules(int& n, int* arr)
     if (isExistSum == false) {
         std::cout << "Sum doesn`t exsist!" << '\n';
     }
-
     else {
         std::cout << "Sum of secon null elements = " << sum << '\n';
     }
@@ -131,5 +130,6 @@ int main()
     catch (std::exception e) {
         std::cout << e.what();
     }
+    return 0;
 }
 

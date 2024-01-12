@@ -69,6 +69,7 @@ void theLengthOfTheLongestChain(int32_t& n, int* arr)
             currentLength = 1;
         }
     }
+
     if (currentLength > maxLength) {
         maxLength = currentLength;
     }
@@ -119,7 +120,10 @@ int main()
     theLengthOfTheLongestChain(n, arr);
     delete[]arr;
     }
+
     catch (std::exception e) {
         std::cout << e.what();
     }
+    return 0;
 }
+
