@@ -9,10 +9,6 @@
 #include <iomanip>
 
 
-using std::cin;
-using std::cout;
-
-
 void fillingWithZeroes(int32_t** matrix, int32_t& rows,int32_t &columns)
 {
 	for (size_t i = 0; i < rows; ++i) {
@@ -25,12 +21,12 @@ void fillingWithZeroes(int32_t** matrix, int32_t& rows,int32_t &columns)
 
 void inputStartValueFromKeyboard(int32_t& value)
 {
-    cout << "Input start value:";
-    cin >> value;
+    std::cout << "Input start value:";
+    std::cin >> value;
 
     if (value <= 0) {
-        cout << "Please, input natural number!";
-        cin >> value;
+        std::cout << "Please, input natural number!";
+        std::cin >> value;
     }
 }
 
@@ -39,19 +35,19 @@ void inputStartValueFromRandom(int32_t &value)
 {
     int32_t rightBoader;
     int32_t leftBoader;
-    cout << "Input right boader:";
-    cin >> rightBoader;
+    std::cout << "Input right boader:";
+    std::cin >> rightBoader;
 
     if (rightBoader < 1) {
-        cout << "Please, input natural number!";
-        cin >> rightBoader;
+        std::cout << "Please, input natural number!";
+        std::cin >> rightBoader;
     }
-    cout << "Input left boader:";
-    cin >> leftBoader;
+    std::cout << "Input left boader:";
+    std::cin >> leftBoader;
 
     if (leftBoader < 1) {
-        cout << "Please, input natural number!";
-        cin >> leftBoader;
+        std::cout << "Please, input natural number!";
+        std::cin >> leftBoader;
     }
     value = rand() % (leftBoader - rightBoader) + rightBoader + 1;
 }
@@ -132,7 +128,7 @@ void sumOfSecondaryDiagonal(int32_t** matrix, int32_t& value, int32_t& rows, int
             }
         }
     }
-    cout << "It is sum of secondary diagonal:" << sum;
+    std::cout << "It is sum of secondary diagonal:" << sum;
 }
 
 
@@ -142,17 +138,17 @@ void printingMatrix(int32_t** matrix, int32_t &rows, int32_t &columns)
 
 		for (size_t j = 0; j < columns; ++j) {
 
-            cout << std::setw(5) << matrix[i][j] << " ";
+            std::cout << std::setw(5) << matrix[i][j] << " ";
 		}
-		cout << '\n';
+		std::cout << '\n';
 	}
 }
 
 
 void switchMode(int32_t& value, int32_t& mode)
 {
-    cout << "Chooze mode of input start value"<<'\n'<<"1.Input from keyboard"<<'\n'<<"2.Input from random"<<'\n';
-    cin >> mode;
+    std::cout << "Chooze mode of input start value"<<'\n'<<"1.Input from keyboard"<<'\n'<<"2.Input from random"<<'\n';
+    std::cin >> mode;
 
     switch (mode) {
 
@@ -165,8 +161,8 @@ void switchMode(int32_t& value, int32_t& mode)
         break;
 
     default:
-        cout << "Please, input good number";
-        cin >> mode;
+        std::cout << "Please, input good number";
+        std::cin >> mode;
     }
 }
 
@@ -178,12 +174,12 @@ int main()
         int32_t value = 1;
         int32_t rows = 0;
         int32_t mode = 0;
-        cout << "Input size of your matrix:";
-        cin >> rows;
+        std::cout << "Input size of your matrix:";
+        std::cin >> rows;
 
         if (rows <= 0) {
-            cout << "Please, input natural number!";
-            cin >> rows;
+            std::cout << "Please, input natural number!";
+            std::cin >> rows;
         }
         int32_t columns = rows;
         int32_t** matrix = new int*[rows];
@@ -203,7 +199,7 @@ int main()
     }
 
     catch(std::exception e) {
-        cout << e.what();
+        std::cout << e.what();
     }
     return 0;
 }
