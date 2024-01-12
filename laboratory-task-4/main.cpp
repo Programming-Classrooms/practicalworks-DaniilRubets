@@ -136,13 +136,25 @@ int sumOfSecondaryDiagonal(int32_t** matrix, int32_t& value, int32_t& rows, int3
 }
 
 
-void printingMatrix(int32_t** matrix, int32_t &rows, int32_t &columns)
+void inputWidthOfPrintMatrix(int32_t width)
 {
+    std::cout << "Please, input width of print matrix!";
+    std::cin >> width;
+    if(width < 0){
+        std::cout << "Please, input natural number!";
+        std::cin >> width;
+    }
+}
+
+
+void printMatrix(int32_t** matrix, int32_t &rows, int32_t &columns, int32_t width)
+{
+    inputWidthOfPrintMatrix(width);
 	for (size_t i = 0; i < rows; ++i) {
 
 		for (size_t j = 0; j < columns; ++j) {
 
-            std::cout << std::setw(5) << matrix[i][j] << " ";
+            std::cout << std::setw(width) << matrix[i][j] << " ";
 		}
 		std::cout << '\n';
 	}
@@ -180,6 +192,7 @@ int main()
         int32_t mode = 0;
         int32_t rightBoader = 0;
         int32_t leftBoader = 0;
+        int32_t width = 0;
         std::cout << "Input size of your matrix:";
         std::cin >> rows;
 
@@ -196,7 +209,7 @@ int main()
         fillingWithZeroes(matrix, rows, columns);
         switchMode(value, mode, rightBoader, leftBoader);
         spiralFilling(matrix, rows, columns,value);
-        printingMatrix(matrix ,rows,columns);
+        printMatrix(matrix ,rows,columns, width);
         std::cout << "It is sum of secondary diagonal:" << sumOfSecondaryDiagonal(matrix, value, rows, columns);
         for (size_t i = 0; i < rows; i++) {
 		    delete[]matrix[i];
