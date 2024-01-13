@@ -47,10 +47,10 @@ std::string findMaxUnigueChars(std::string& str, std::string& word, std::string&
 int main() 
 {
     try {
-        std::string str = "";
-        std::string delimiters = " .,-:)(!?;";
-        std::string word = "";
-        std::string maxWord = "";
+        std::string str = std::string("");
+        std::string delimiters = std::string(" .,-:)(!?;");
+        std::string word = std::string("");
+        std::string maxWord = std::string("");
         std::cout << "Input your string: ";
         std::getline(std::cin, str);
         checkString(str);
