@@ -18,7 +18,7 @@ jobs:
 
         git fetch origin ${{ github.base_ref }}
         
-        git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }} | cut -d'/' -f1 | uniq | grep '^practical-works' | while read dir; do
+        git diff --name-only origin/${{ github.base_ref }} origin/${{ github.head_ref }} | cut -d'/' -f1 | uniq | grep '^laboratory-task' | while read dir; do
           if [ -n "$dir" ] && [ -d "$dir" ]; then
             echo "Executing 'bazel build' in directory $dir"
             (cd $dir && bazel build //src/main:all --config=release)
