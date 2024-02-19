@@ -20,7 +20,7 @@ jobs:
         cat changed_dirs.txt | while read dir; do
           if [ -n "$dir" ] && [ -d "$dir" ]; then
             echo "Executing 'bazel test' in directory $dir"
-             (cd $dir && bazel test //src/main:all)
+             (cd $dir && bazel test //src/tests:all)
           else
             echo "Directory $dir does not exist or is not a directory"
           fi
