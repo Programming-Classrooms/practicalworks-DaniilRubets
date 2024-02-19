@@ -15,7 +15,7 @@ jobs:
       run: |
         git fetch origin ${{ github.base_ref }}
 
-        git diff --name-only origin/${{ github.base_ref }} origin/${{ github.head_ref }} | cut -d'/' -f1 | uniq | grep '^laboratory-task' > changed_dirs.txt || exit 0
+        git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }} | cut -d'/' -f1 | uniq | grep '^laboratory-task' > changed_dirs.txt || exit 0
         
         cat changed_dirs.txt | while read dir; do
           if [ -n "$dir" ] && [ -d "$dir" ]; then
