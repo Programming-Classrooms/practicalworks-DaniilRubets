@@ -28,7 +28,7 @@ jobs:
         cat changed_dirs.txt | while read dir; do
           if [ -n "$dir" ] && [ -d "$dir" ]; then
             echo "Executing 'bazel test' in directory $dir"
-             (cd $dir && bazel test //src/tests:all --cxxopt=-std=c++20)
+             (cd $dir && bazel test //src/tests:all --cxxopt=-std=c++20 --action_env CC=g++ --action_env CXX=g++)
           else
             echo "Directory $dir does not exist or is not a directory"
           fi
