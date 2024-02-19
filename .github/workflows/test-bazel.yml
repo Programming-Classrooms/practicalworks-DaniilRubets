@@ -1,0 +1,28 @@
+name: Bazel test
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  list-root-changed-dirs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: bazelbuild/setup-bazelisk@v3
+
+    - name: Bazel test changed projects
+      run: |
+        git fetch origin ${{ github.base_ref }}
+        git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }} | cut -d'/' -f1 | uniq | grep 
+
+        git fetch origin ${{ github.base_ref }}
+        
+        git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }} | cut -d'/' -f1 | uniq | grep '^practical-works' | while read dir; do
+          if [ -n "$dir" ] && [ -d "$dir" ]; then
+            echo "Executing 'bazel test' in directory $dir"
+            (cd $dir && bazel test //src/main:all)
+          else
+            echo "Directory $dir does not exist or is not a directory"
+          fi
+        done
