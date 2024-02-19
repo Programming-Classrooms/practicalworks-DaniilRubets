@@ -13,15 +13,14 @@ jobs:
 
     - name: Bazel test changed projects
       run: |
-        git fetch origin ${{ github.base_ref }}
-        git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }} | cut -d'/' -f1 | uniq | grep 
 
         git fetch origin ${{ github.base_ref }}
+        git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }} | cut -d'/' -f1 | uniq | grep '^laboratory-task' > changed_dirs.txt || exit 0
         
-        git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }} | cut -d'/' -f1 | uniq | grep '^practical-works' | while read dir; do
+        cat changed_dirs.txt | while read dir; do
           if [ -n "$dir" ] && [ -d "$dir" ]; then
             echo "Executing 'bazel test' in directory $dir"
-            (cd $dir && bazel test //src/main:all)
+             (cd $dir && bazel test //src/main:all)
           else
             echo "Directory $dir does not exist or is not a directory"
           fi
