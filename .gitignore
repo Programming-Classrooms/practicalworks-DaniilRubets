@@ -6,7 +6,7 @@ Thumbs.db
 .vscode/*
 
 # Bazel
-bazel-*
+bazel-*/
 _bazel
 MODULE.bazel.lock
 .cache/
