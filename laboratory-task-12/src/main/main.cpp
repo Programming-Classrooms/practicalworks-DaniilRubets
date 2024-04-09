@@ -2,7 +2,8 @@
 #include <iostream>
 int main() 
 {
-	string line = "Hello user!";
+	try{
+		string line = "Hello user!";
 	string str = "Input your name: ";
 	string str1;
 	std::cout << line << '\n' << str;
@@ -38,5 +39,11 @@ int main()
 	{
 		std::cout << "True" << std::endl;
 	}
+	}
+	catch(std::exception cerr)
+	{
+		std::cout << cerr.what();
+	}
+	
 	return 0;
 }
