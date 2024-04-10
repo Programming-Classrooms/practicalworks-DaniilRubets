@@ -17,7 +17,7 @@ int main()
 	char x;
 	std::cout << "Input elemnt from your string: ";
 	std::cin >> x;
-	std::cout << "Index your element: " << str3.findIndex(x);
+	std::cout << "Index your element: " << str3.findIndex(x) << '/n';
 	str3+=str;
 	std::cout << str3 << std::endl;
 	str3 = str1;
