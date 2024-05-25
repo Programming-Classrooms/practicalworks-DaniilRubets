@@ -5,6 +5,6 @@ cc_test(
     srcs = ["LibraryTest.cpp"],
     deps = [
         "@googletest//:gtest_main",
-        "//src/Library:Library",
+        "//src/Biblioteca:Library",
     ]
 )

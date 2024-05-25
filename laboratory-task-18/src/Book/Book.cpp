@@ -92,12 +92,6 @@ int Book::getCount()
 }
 
 
-void Book::setIBSN(std::string& str)
-{
-	this->IBSN = IDnumIncr();
-}
-
-
 void Book::setTitle(std::string& str)
 {
 	this->title = str;
