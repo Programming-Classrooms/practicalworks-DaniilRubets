@@ -1,4 +1,6 @@
 #include "../Fraction/Fraction.hpp"
+
+
 int main() 
 {
 	try

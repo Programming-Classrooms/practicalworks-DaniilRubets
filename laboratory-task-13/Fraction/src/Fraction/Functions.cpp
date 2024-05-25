@@ -1,4 +1,6 @@
 #include "../Fraction/Fraction.hpp"
+
+
 Fraction::Fraction() { //конструктор по умолчанию
   numerator = 0;
   denominator = 1;

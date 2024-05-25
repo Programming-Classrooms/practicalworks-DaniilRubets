@@ -1,5 +1,6 @@
 #include "../Matrix/Matrix.hpp"
 
+
 Matrix::Matrix(): rows(0), cols(0) 
 {
 	data = nullptr;
