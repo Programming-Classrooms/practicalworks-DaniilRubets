@@ -1,0 +1,6 @@
+First Fisherman catched: Лещь 
+Second Fisherman catched: Язь окунь 
+Third Fisherman catched: окунь 
+Fishes that every Fisherman has: 
+Fish present in at least one fisherman: Лещь Язь окунь 
+Fishes that are left in the lake: Щцка 
